@@ -1,0 +1,21 @@
+<!-- templates/tasks/excluir_tarefa.html -->
+{% load static %}
+
+<!-- templates/tasks/excluir_tarefa.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmação de Exclusão</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Confirmação de Exclusão</h1>
+    <p>Você tem certeza de que deseja excluir esta tarefa?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirmar Exclusão">
+    </form>
+    <a href="{% url 'listar_tarefas' %}">Cancelar</a>
+</body>
+</html>

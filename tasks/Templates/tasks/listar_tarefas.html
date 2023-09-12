@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Tarefas</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Listagem de Tarefas</h1>
+    <ul>
+        {% for tarefa in tarefas %}
+            <li>
+                {% if tarefa.concluida %}
+                    <s>{{ tarefa.descricao }}</s> (Concluída) 
+                    <form method="post" action="{% url 'excluir_tarefa' tarefa.pk %}" class="excluir-form">
+                        {% csrf_token %}
+                        <button type="submit" class="excluir-btn">(Excluir)</button>
+                    </form>
+                {% else %}
+                    {{ tarefa.descricao }}
+                    <a href="{% url 'marcar_como_concluida' tarefa.pk %}" class="marcar-concluida-btn">(Marcar como Concluída)</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Nenhuma tarefa encontrada.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'adicionar_tarefa' %}" class="adicionar-btn">Adicionar Tarefa</a>
+</body>
+</html>
+

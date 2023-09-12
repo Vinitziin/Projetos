@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Tarefa</title>
+    <!-- Referência ao arquivo CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Adicionar Tarefa</h1>
+    <form method="post" class="adicionar-tarefa-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="adicionar-tarefa-btn">Salvar Tarefa</button>
+    </form>
+    <a href="{% url 'listar_tarefas' %}" class="voltar-listagem-link">Voltar para Listagem de Tarefas</a>
+</body>
+</html>

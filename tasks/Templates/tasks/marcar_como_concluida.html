@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Marcar Tarefa como Concluída</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* Estilos específicos para esta página */
+        /* Adicione seus estilos personalizados aqui */
+    </style>
+</head>
+<body>
+    <h1>Marcar Tarefa como Concluída</h1>
+    <p>A tarefa foi marcada como concluída com sucesso.</p>
+    <a href="{% url 'listar_tarefas' %}">Voltar para a lista de tarefas</a>
+</body>
+</html>
